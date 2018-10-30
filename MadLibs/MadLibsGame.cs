@@ -15,8 +15,8 @@ namespace MadLibs
                 madLib = madLibsMenu.GetMadLib(Console.Out, Console.In);
             }
 
-            madLib.GetUserAnswers();
-            madLib.Print();
+            madLib.GetUserAnswers(Console.Out, Console.In);
+            madLib.Print(Console.Out);
         }
     }
 }
