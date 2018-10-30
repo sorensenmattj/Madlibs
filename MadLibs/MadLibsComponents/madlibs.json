@@ -1,0 +1,67 @@
+﻿{
+  "madlibs": [
+    {
+      "name": "Day of School",
+      "text": [
+        "I wake up at {time} o'clock, and brush my {body part}.",
+        "I get my {article of clothing} out of the closet, and start to {verb (no -ing)}.",
+        "My bed is usually a mess, so I {verb {no -ing)} and put my favourite {thing(s)} on top of it.",
+        "In the kitchen, my {family member} is making breakfast.",
+        "I absolutely love {food} with {food} and eat it almost every day.",
+        "To get to school, I {mode of transport (no -ing)}.",
+        "Everyone meets in my classroom, and then {school subject} begins.",
+        "My teacher is happy when we all {verb (no -ing)}.",
+        "At recess, my BFF and I like to {verb (no -ing)} together.",
+        "Lunch time is fun time, because {friend} and I sit together and {verb (no -ing)} while we eat our lunches.",
+        "Morning is over, but tomorrow I get to do it all again!"
+      ]
+    },
+    {
+      "name" : "Mad Tea Party",
+      "text" : [
+        "Last week, I was downtown {verb (with -ing)} with {name of a person}.",
+        "We had been wondering up and down the {noun} all afternoon and our {plural noun} were tired.",
+        "So, we decided to take a break and relax in (the) {place}.",
+        "When we arrived at (the) {same place}, we encountered a/an {adjective} line, all the way out the {noun}.",
+        "We were {adjective}, but we decided to stand in line because we could {verb (no -ing)} the {noun} brewing in the {noun}.",
+        "After waiting for 10 minutes in a {adjective} line, we noticed a/an {noun} rush past us, muttering {famous quote}.",
+        "We were curious, so we followed this stranger out the door and around the corner into the alley, where we discovered a {noun} sitting on an oversized {noun} and {verb (with -ing)} a {noun}.",
+        "We were {verb (with -ed)} at first so we didn't notice the group of {plural noun} sitting around a/an {adjective} table, sipping tea.",
+        "'{Exclamation},' yelled the {noun} sitting at the head of the table. 'You must sit down and join us for tea, at once!",
+        "The guests around the table looked a little {adjective}, but we thought 'why not?'",
+        "We were hungry and tired and the {noun} looked {adjective}.",
+        "We sat down and poured ourselves a cup of {beverage} and ate the {noun}, oblivious to what was happening around us.",
+        "All of a sudden, we felt like we were {verb (with -ing}, and soon we were only two inches tall.",
+        "Scared, we dropped our {noun} and jumped off the chairs and started running.",
+        "We ran and ran for what seemed like miles.",
+        "As we were running, I turned my head and ran smack into a/an {noun}, then tripped over a/an {noun} and landed on my {noun}.",
+        "As I was rubbing my head, trying to figure out where I was, a white rabbit scurried over to me and said '{famous quote}. Let's go!'"
+      ]
+    },
+    {
+      "name" : "Amusement Parks",
+      "text" : [
+        "An amusement park is always fun to visit on a hot summer {noun}.",
+        "When you get there, you can wear your {article of clothing} and go for a swim.",
+        "And there are lots of {adjective} things to eat.",
+        "You can start off with a/an {adjective}-dog on a/an {noun} with mustard, relish and {plural noun} on it.",
+        "Then you can have a buttered ear of {noun} with a nice {adjective} slice of {food} and a big bottle of cold {liquid}.",
+        "When you are full, it's time to go on the roller coaster, which should settle your {body part}.",
+        "Other amusement park rides are the bumper cars, which have little {plural noun} that you drive and run into other {plural noun}, ",
+        "and the merry-go round, where you can sit on a big {animal} and try to grab the gold {noun} as you ride past it."
+      ]
+    },
+    {
+      "name" : "Party Time",
+      "text" : [
+        "One of the most {adjective} things about graduating is that my {plural noun} are {verb (with -ing)} a huge party!",
+        "I decided to have a backyard barbecue for all of my family and {plural noun}.",
+        "I've invited my best friends {female celebrity}, {male friend} and of course my teacher Mrs. {silly word}.",
+        "My dad is going to {verb (no -ing)} hamburgers and {plural food} on his shiny new {noun}.",
+        "He always thinks his {same plural food} taste really {adjective}, but I think they taste like {adjective} {plural shoe}.",
+        "My mum is going to make her famous {something alive} salad, which is my favourite {noun} ever!",
+        "After we finish {verb (with -ing)}, we can go swimming in our new {noun}. {silly word}!"
+      ]
+    }
+  ]
+}
