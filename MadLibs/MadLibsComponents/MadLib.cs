@@ -41,10 +41,7 @@ namespace MadLibs.MadLibsComponents
         /// </summary>
         public void Print()
         {
-            foreach (var line in _MadLibText)
-            {
-                Console.WriteLine(line);
-            }
+            _MadLibText.ForEach(line => Console.WriteLine(line));
         }
     }
 }
