@@ -24,6 +24,8 @@ namespace MadLibs.MadLibsComponents
         /// <returns>The Madlib object for the MadLib the user chose.</returns>
         public MadLib GetMadLib()
         {
+            var random = new Random();
+
             while (true)
             {
                 Console.WriteLine("Choose a madlib:");
@@ -33,20 +35,22 @@ namespace MadLibs.MadLibsComponents
                     Console.WriteLine($"\t{i+1}) {_MadLibs[i].MadLibName}");
                 }
 
+                Console.WriteLine($"\t{_MadLibs.Count + 1}) Random");
+
                 Console.Write("> ");
                 var input = Console.ReadLine();
 
                 if (int.TryParse(input, out int choice))
                 {
-                    try
+                    if (choice == _MadLibs.Count + 1)
                     {
-                        var chosenMadLib = _MadLibs[choice - 1];
                         Console.WriteLine();
-                        return chosenMadLib;
+                        return _MadLibs[random.Next(0, _MadLibs.Count)];
                     }
-                    catch
+                    else if (choice >= 1 && choice <= _MadLibs.Count)
                     {
-                        continue;
+                        Console.WriteLine();
+                        return _MadLibs[choice - 1];
                     }
                 }
             }
