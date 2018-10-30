@@ -1,4 +1,5 @@
 ﻿using MadLibs.MadLibsComponents;
+using System;
 
 namespace MadLibs
 {
@@ -7,7 +8,13 @@ namespace MadLibs
         public void Play()
         {
             var madLibsMenu = new MadLibsMenu();
-            var madLib = madLibsMenu.GetMadLib();
+            MadLib madLib = null;
+
+            while (madLib == null)
+            {
+                madLib = madLibsMenu.GetMadLib(Console.Out, Console.In);
+            }
+
             madLib.GetUserAnswers();
             madLib.Print();
         }

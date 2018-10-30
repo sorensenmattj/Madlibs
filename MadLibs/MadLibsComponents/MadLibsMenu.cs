@@ -8,7 +8,7 @@ namespace MadLibs.MadLibsComponents
     public class MadLibsMenu
     {
         [JsonProperty("madlibs")]
-        private List<MadLib> _MadLibs { get; set; }
+        public List<MadLib> MadLibs { get; set; }
 
         /// <summary>
         /// Initalise a new instance of the <see cref="MadLibsMenu"/> class with the specified options.
@@ -22,37 +22,42 @@ namespace MadLibs.MadLibsComponents
         /// Ask the user to choose a MadLib to play.
         /// </summary>
         /// <returns>The Madlib object for the MadLib the user chose.</returns>
-        public MadLib GetMadLib()
+        public MadLib GetMadLib(TextWriter writer, TextReader reader)
         {
             var random = new Random();
 
-            while (true)
+            writer.WriteLine("Choose a madlib:");
+
+            for (int i = 0; i < MadLibs.Count; i++)
             {
-                Console.WriteLine("Choose a madlib:");
+                writer.WriteLine($"\t{i+1}) {MadLibs[i].MadLibName}");
+            }
 
-                for (int i = 0; i < _MadLibs.Count; i++)
+            writer.WriteLine($"\t{MadLibs.Count + 1}) Random");
+
+            writer.Write("> ");
+            var input = reader.ReadLine();
+
+            if (int.TryParse(input, out int choice))
+            {
+                if (choice == MadLibs.Count + 1)
                 {
-                    Console.WriteLine($"\t{i+1}) {_MadLibs[i].MadLibName}");
+                    writer.WriteLine();
+                    return MadLibs[random.Next(0, MadLibs.Count)];
                 }
-
-                Console.WriteLine($"\t{_MadLibs.Count + 1}) Random");
-
-                Console.Write("> ");
-                var input = Console.ReadLine();
-
-                if (int.TryParse(input, out int choice))
+                else if (choice >= 1 && choice <= MadLibs.Count)
                 {
-                    if (choice == _MadLibs.Count + 1)
-                    {
-                        Console.WriteLine();
-                        return _MadLibs[random.Next(0, _MadLibs.Count)];
-                    }
-                    else if (choice >= 1 && choice <= _MadLibs.Count)
-                    {
-                        Console.WriteLine();
-                        return _MadLibs[choice - 1];
-                    }
+                    writer.WriteLine();
+                    return MadLibs[choice - 1];
                 }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
             }
         }
 
@@ -65,7 +70,7 @@ namespace MadLibs.MadLibsComponents
             {
                 string json = reader.ReadToEnd();
                 var root = JsonConvert.DeserializeObject<RootJsonObject>(json);
-                _MadLibs = root.Madlibs;
+                MadLibs = root.Madlibs;
             }
         }
     }
