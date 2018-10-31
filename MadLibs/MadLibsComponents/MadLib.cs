@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -12,39 +12,36 @@ namespace MadLibs.MadLibsComponents
         public string MadLibName { get; set; }
 
         [JsonProperty("text")]
-        private List<string> _MadLibText { get; set; }
+        public List<string> MadLibText { get; set; }
 
         /// <summary>
         /// Ask the user for answers to all of the MadLib options.
         /// </summary>
-        public void GetUserAnswers()
+        public void GetUserAnswers(TextWriter writer, TextReader reader)
         {
-            var fullText = string.Join("\n", _MadLibText.ToArray());
+            var fullText = string.Join("\n", MadLibText.ToArray());
             var madLibOptionMatches = Regex.Matches(fullText, @"{(.+?)}");
 
             foreach (Match optionMatch in madLibOptionMatches)
             {
-                Console.Write($"{optionMatch.Groups[1]}: ");
-                var answer = Console.ReadLine();
+                writer.Write($"{optionMatch.Groups[1]}: ");
+                var answer = reader.ReadLine();
 
                 var regex = new Regex(@"{.+?}");
                 fullText = regex.Replace(fullText, answer, 1);
             }
 
-            Console.WriteLine();
+            writer.WriteLine();
 
-            _MadLibText = fullText.Split('\n').ToList();
+            MadLibText = fullText.Split('\n').ToList();
         }
 
         /// <summary>
         /// Print the MadLib to the console window.
         /// </summary>
-        public void Print()
+        public void Print(TextWriter writer)
         {
-            foreach (var line in _MadLibText)
-            {
-                Console.WriteLine(line);
-            }
+            MadLibText.ForEach(line => writer.WriteLine(line));
         }
     }
 }
