@@ -51,13 +51,14 @@
   <ItemGroup>
     <Compile Include="MadLibSelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveAnswers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MadLibs\MadLibs.csproj">
-      <Project>{CF604A9E-54E8-440A-8899-2F463B95E382}</Project>
+      <Project>{cf604a9e-54e8-440a-8899-2f463b95e382}</Project>
       <Name>MadLibs</Name>
     </ProjectReference>
   </ItemGroup>
