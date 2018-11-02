@@ -41,7 +41,10 @@ namespace MadLibs.MadLibsComponents
         /// </summary>
         public void Print(TextWriter writer)
         {
-            MadLibText.ForEach(line => writer.WriteLine(line));
+            using (writer)
+            {
+                MadLibText.ForEach(line => writer.WriteLine(line));
+            }
         }
     }
 }
