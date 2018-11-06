@@ -20,14 +20,15 @@ namespace MadLibs.MadLibsComponents
         public void GetUserAnswers(TextWriter writer, TextReader reader)
         {
             var fullText = string.Join("\n", MadLibText.ToArray());
-            var madLibOptionMatches = Regex.Matches(fullText, @"{(.+?)}");
+
+            var regex = new Regex(@"{(.+?)}");
+            var madLibOptionMatches = regex.Matches(fullText);
 
             foreach (Match optionMatch in madLibOptionMatches)
             {
                 writer.Write($"{optionMatch.Groups[1]}: ");
                 var answer = reader.ReadLine();
 
-                var regex = new Regex(@"{.+?}");
                 fullText = regex.Replace(fullText, answer, 1);
             }
 

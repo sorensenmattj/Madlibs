@@ -17,7 +17,10 @@ namespace UnitTests
             {
                 var madLib = madLibsMenu.GetMadLib(Console.Out, new StringReader($"{i+1}"));
 
-                Assert.AreEqual(madLibsMenu.MadLibs[i].MadLibName, madLib.MadLibName);
+                Assert.AreEqual(
+                    madLibsMenu.MadLibs[i].MadLibName,
+                    madLib.MadLibName,
+                    "Selected Madlib name does not match expected name.");
             }
         }
 
@@ -25,26 +28,30 @@ namespace UnitTests
         public void SelectRandomMadlib()
         {
             var madLibsMenu = new MadLibsMenu();
-            var madLib = madLibsMenu.GetMadLib(Console.Out, new StringReader($"{madLibsMenu.MadLibs.Count + 1}"));
+            var madLib = madLibsMenu.GetMadLib(
+                            Console.Out,
+                            new StringReader($"{madLibsMenu.MadLibs.Count + 1}"));
 
-            Assert.IsNotNull(madLib);
+            Assert.IsNotNull(madLib, "No Madlib returned.");
         }
 
         [TestMethod]
         public void ProvideInvalidChoices()
         {
             var madLibsMenu = new MadLibsMenu();
-            var madLib = madLibsMenu.GetMadLib(Console.Out, new StringReader($"{madLibsMenu.MadLibs.Count + 2}"));
+            var madLib = madLibsMenu.GetMadLib(
+                            Console.Out,
+                            new StringReader($"{madLibsMenu.MadLibs.Count + 2}"));
 
-            Assert.IsNull(madLib);
+            Assert.IsNull(madLib, "Madlib was selected when none should have been selected.");
 
             madLib = madLibsMenu.GetMadLib(Console.Out, new StringReader("-1"));
 
-            Assert.IsNull(madLib);
+            Assert.IsNull(madLib, "Madlib was selected when none should have been selected.");
 
             madLib = madLibsMenu.GetMadLib(Console.Out, new StringReader("a"));
 
-            Assert.IsNull(madLib);
+            Assert.IsNull(madLib, "Madlib was selected when none should have been selected.");
         }
     }
 }
