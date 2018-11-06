@@ -27,38 +27,41 @@ namespace MadLibs.MadLibsComponents
         {
             var random = new Random();
 
-            writer.WriteLine("Choose a madlib:");
-
-            for (int i = 0; i < MadLibs.Count; i++)
+            using (writer)
             {
-                writer.WriteLine($"\t{i+1}) {MadLibs[i].MadLibName}");
-            }
+                writer.WriteLine("Choose a madlib:");
 
-            writer.WriteLine($"\t{MadLibs.Count + 1}) Random");
-
-            writer.Write("> ");
-            var input = reader.ReadLine();
-
-            if (int.TryParse(input, out int choice))
-            {
-                if (choice == MadLibs.Count + 1)
+                for (int i = 0; i < MadLibs.Count; i++)
                 {
-                    writer.WriteLine();
-                    return MadLibs[random.Next(0, MadLibs.Count)];
+                    writer.WriteLine($"\t{i + 1}) {MadLibs[i].MadLibName}");
                 }
-                else if (choice >= 1 && choice <= MadLibs.Count)
+
+                writer.WriteLine($"\t{MadLibs.Count + 1}) Random");
+
+                writer.Write("> ");
+                var input = reader.ReadLine();
+
+                if (int.TryParse(input, out int choice))
                 {
-                    writer.WriteLine();
-                    return MadLibs[choice - 1];
+                    if (choice == MadLibs.Count + 1)
+                    {
+                        writer.WriteLine();
+                        return MadLibs[random.Next(0, MadLibs.Count)];
+                    }
+                    else if (choice >= 1 && choice <= MadLibs.Count)
+                    {
+                        writer.WriteLine();
+                        return MadLibs[choice - 1];
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
                 else
                 {
                     return null;
                 }
-            }
-            else
-            {
-                return null;
             }
         }
 
