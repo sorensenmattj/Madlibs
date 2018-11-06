@@ -9,10 +9,10 @@ namespace MadLibs.MadLibsComponents
     public class MadLib
     {
         [JsonProperty("name")]
-        public string MadLibName { get; set; }
+        public string MadLibName { get; private set; }
 
         [JsonProperty("text")]
-        public List<string> MadLibText { get; set; }
+        private List<string> MadLibText { get; set; }
 
         /// <summary>
         /// Ask the user for answers to all of the MadLib options.
