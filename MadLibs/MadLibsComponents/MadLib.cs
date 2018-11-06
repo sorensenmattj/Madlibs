@@ -25,6 +25,7 @@ namespace MadLibs.MadLibsComponents
             var madLibOptionMatches = regex.Matches(fullText);
 
             using (writer)
+            using (reader)
             {
                 foreach (Match optionMatch in madLibOptionMatches)
                 {
