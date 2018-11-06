@@ -1,7 +1,7 @@
-﻿using System;
-using System.IO;
-using MadLibs.MadLibsComponents;
+﻿using MadLibs.MadLibsComponents;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.IO;
 
 namespace UnitTests
 {
@@ -36,7 +36,16 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void ProvideInvalidChoices()
+        public void ProvideLetterForIndex()
+        {
+            var madLibsMenu = new MadLibsMenu();
+            var madLib = madLibsMenu.GetMadLib(Console.Out, new StringReader("a"));
+
+            Assert.IsNull(madLib, "Madlib was selected when none should have been selected.");
+        }
+
+        [TestMethod]
+        public void ProvideTooLargeIndex()
         {
             var madLibsMenu = new MadLibsMenu();
             var madLib = madLibsMenu.GetMadLib(
@@ -44,12 +53,13 @@ namespace UnitTests
                             new StringReader($"{madLibsMenu.MadLibs.Count + 2}"));
 
             Assert.IsNull(madLib, "Madlib was selected when none should have been selected.");
+        }
 
-            madLib = madLibsMenu.GetMadLib(Console.Out, new StringReader("-1"));
-
-            Assert.IsNull(madLib, "Madlib was selected when none should have been selected.");
-
-            madLib = madLibsMenu.GetMadLib(Console.Out, new StringReader("a"));
+        [TestMethod]
+        public void ProvideNegativeIndex()
+        {
+            var madLibsMenu = new MadLibsMenu();
+            var madLib = madLibsMenu.GetMadLib(Console.Out, new StringReader("-1"));
 
             Assert.IsNull(madLib, "Madlib was selected when none should have been selected.");
         }
