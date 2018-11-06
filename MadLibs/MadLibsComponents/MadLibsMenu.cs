@@ -28,6 +28,7 @@ namespace MadLibs.MadLibsComponents
             var random = new Random();
 
             using (writer)
+            using (reader)
             {
                 writer.WriteLine("Choose a madlib:");
 
