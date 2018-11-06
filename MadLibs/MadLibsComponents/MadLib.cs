@@ -24,15 +24,18 @@ namespace MadLibs.MadLibsComponents
             var regex = new Regex(@"{(.+?)}");
             var madLibOptionMatches = regex.Matches(fullText);
 
-            foreach (Match optionMatch in madLibOptionMatches)
+            using (writer)
             {
-                writer.Write($"{optionMatch.Groups[1]}: ");
-                var answer = reader.ReadLine();
+                foreach (Match optionMatch in madLibOptionMatches)
+                {
+                    writer.Write($"{optionMatch.Groups[1]}: ");
+                    var answer = reader.ReadLine();
 
-                fullText = regex.Replace(fullText, answer, 1);
+                    fullText = regex.Replace(fullText, answer, 1);
+                }
+
+                writer.WriteLine();
             }
-
-            writer.WriteLine();
 
             MadLibText = fullText.Split('\n').ToList();
         }
