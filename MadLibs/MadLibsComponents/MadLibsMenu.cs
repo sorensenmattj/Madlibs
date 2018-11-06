@@ -11,7 +11,8 @@ namespace MadLibs.MadLibsComponents
         public List<MadLib> MadLibs { get; set; }
 
         /// <summary>
-        /// Initalise a new instance of the <see cref="MadLibsMenu"/> class with the specified options.
+        /// Initalise a new instance of the <see cref="MadLibsMenu"/> 
+        /// class with the specified options.
         /// </summary>
         public MadLibsMenu()
         {
@@ -66,7 +67,11 @@ namespace MadLibs.MadLibsComponents
         /// </summary>
         private void LoadMadLibs()
         {
-            using (StreamReader reader = new StreamReader(@"C:\Users\Matt Sorensen\source\repos\MadLibs\MadLibs\MadLibsComponents\madlibs.json"))
+            var repoPath = @"C:\Users\Matt Sorensen\source\repos";
+            var fileRelPath = @"MadLibs\MadLibs\MadLibsComponents\madlibs.json";
+            var jsonFile = Path.Combine(repoPath, fileRelPath);
+
+            using (StreamReader reader = new StreamReader(jsonFile))
             {
                 string json = reader.ReadToEnd();
                 var root = JsonConvert.DeserializeObject<RootJsonObject>(json);
